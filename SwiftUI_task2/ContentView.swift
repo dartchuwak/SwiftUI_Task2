@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var containerWidth: CGFloat = 300
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            (Text("Марафон ").font(.system(size: 18)).foregroundColor(.gray) +
+             Text("по SwiftUI").font(.system(size: 18)).foregroundColor(.black) +
+             Text(" <<Отцовский пинок>>").font(.system(size: 24)).foregroundColor(.blue))
+            .frame(width: containerWidth, height: 300, alignment: .leading)
+            .border(Color.red, width: 2)
+            Slider(value: $containerWidth, in: 100...300)
+                .padding()
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
